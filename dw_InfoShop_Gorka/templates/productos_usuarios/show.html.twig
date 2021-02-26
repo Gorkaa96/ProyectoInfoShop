@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProductosUsuarios{% endblock %}
+
+{% block body %}
+    <h1>ProductosUsuarios</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ productos_usuario.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('productos_usuarios_index') }}">back to list</a>
+
+    <a href="{{ path('productos_usuarios_edit', {'id': productos_usuario.id}) }}">edit</a>
+
+    {{ include('productos_usuarios/_delete_form.html.twig') }}
+{% endblock %}

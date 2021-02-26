@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container">
+       <div class="row">
+           <div class="col-10 mx-auto">
+               <div class="card">
+                   <h5 class="card-header">Productos</h5>
+                   <div class="card-body">
+
+                       <table class="table-borderless table-responsive">
+                           <tr scope="row" class="pb-2">
+                               <td ><h6 class="text-muted">Product name</h6></td>
+                               <td>{{ producto.name }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Product company</h6></td>
+                               <td>{{ producto.company }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Product price</h6></td>
+                               <td>{{ producto.price }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Product inches</h6></td>
+                               <td>{{ producto.inches }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Product colors</h6></td>
+                               <td>{{ producto.colors }}</td>
+                           </tr>
+                           <tr scope="row" class="pb-2">
+                               <td><h6 class="text-muted">Product image</h6></td>
+                               <td>{{ producto.image }}</td>
+                           </tr>
+                       </table>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+    <a href="{{ path('productos_index') }}">back to list</a>
+
+    <a href="{{ path('productos_edit', {'id': producto.id}) }}">edit</a>
+
+    {{ include('productos/_delete_form.html.twig') }}
+{% endblock %}

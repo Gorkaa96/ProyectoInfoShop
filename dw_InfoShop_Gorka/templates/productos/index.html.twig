@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Info Shop{% endblock %}
+
+{% block body %}
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">     
+        <li class="nav-item">
+            <h3><a class="nav-link " >Info Shop</a></h3>
+        </li> 
+      </ul>
+        <a href="{{ path('productos_new') }}">Nuevo producto</a>
+    </div>
+  </nav>
+    
+        
+        <div class="jumbotron jumbotron-fluid rou">
+  <div class="container">
+    <h1 class="display-4">Info Shop </h1>
+    <p class="lead">The best shop of components</p>
+  </div>
+</div>
+<div class="row">
+    {% for producto in productos %}
+    <div  class="m-5 card" style="width: 18rem;">
+        <div  class="card-body">
+        <div  class="card-title">
+        
+            <h4>{{ producto.Empresa }} {{ producto.Nombre }}</h4>
+        </div>
+        
+        {{ producto.Precio }}€
+        </div>
+        <div>
+            <button style="position:relative;left: 5%;bottom: 30%" type="button" class="btn btn-primary">
+        <a style="color: white" href="{{ path('productos_show', {'id': producto.id}) }}">Detalles</a>
+        </button>
+        <button style="position:relative;left: 40%;bottom: 30%" type="button" class="btn btn-primary">
+    <a style="color: white" href="{{ path('productos_edit', {'id': producto.id}) }}">Editar</a>
+    </button>
+        </div>
+    </div>
+                   
+    
+    {% endfor %}
+  
+</div>   
+    
+{% endblock %}
